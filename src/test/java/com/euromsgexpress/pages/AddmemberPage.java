@@ -20,4 +20,13 @@ public class AddmemberPage extends BasePage{
     @FindBy(css = ".btn.btn-labeled.btn-success")
     public WebElement save;
 
+    @FindBy(css = ".table-responsive.ng-star-inserted table tbody tr td:nth-of-type(2)")
+    public WebElement registeredName;
+
+    @FindBy(css = ".table-responsive.ng-star-inserted table tbody tr td:nth-of-type(3)")
+    public WebElement registeredSurName;
+
+    @FindBy(css = ".table-responsive.ng-star-inserted table tbody tr td:nth-of-type(1)")
+    public WebElement registeredEmail;
+
 }

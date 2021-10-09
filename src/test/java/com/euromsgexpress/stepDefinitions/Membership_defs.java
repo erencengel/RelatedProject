@@ -9,6 +9,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 
 public class Membership_defs {
@@ -40,24 +41,34 @@ public class Membership_defs {
         listPage.saveBar.click();
     }
 
-    String name;
-    String surName;
-    String email;
+    String expectedName;
+    String expectedSurname;
+    String expectedEmail;
     @And("Add new member using add with form")
     public void addNewMemberUsingAddWithForm() {
         listPage.addMember.click();
         listPage.addMemberWithForm.click();
-        name = faker.name().firstName();
-        surName = faker.name().lastName();
-        email = name.toLowerCase() + "." + surName.toLowerCase() + "@hotmail.com";
-        addmemberPage.name.sendKeys(name);
-        addmemberPage.surName.sendKeys(surName);
-        addmemberPage.email.sendKeys(email);
+        expectedName = faker.name().firstName();
+        expectedSurname = faker.name().lastName();
+        expectedEmail = expectedName.toLowerCase() + "." + expectedSurname.toLowerCase() + "@hotmail.com";
+        addmemberPage.name.sendKeys(expectedName);
+        addmemberPage.surName.sendKeys(expectedSurname);
+        addmemberPage.email.sendKeys(expectedEmail);
         addmemberPage.permission.click();
         addmemberPage.save.click();
     }
 
+
+    String actualName;
+    String actualSurname;
+    String actualEmail;
     @Then("Verify that new member is seen under recordeds tab")
     public void verifyThatNewMemberIsSeenUnderRecordedsTab() {
+        actualName = addmemberPage.registeredName.getText();
+        actualSurname = addmemberPage.registeredSurName.getText();
+        actualEmail = addmemberPage.registeredEmail.getText();
+        Assert.assertEquals(expectedName,actualName);
+        Assert.assertEquals(expectedSurname,actualSurname);
+        Assert.assertEquals(expectedEmail,actualEmail);
     }
 }
