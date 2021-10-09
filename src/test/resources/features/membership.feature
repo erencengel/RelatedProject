@@ -8,5 +8,6 @@
       Then Verify that user is on the home page
       When Click Üyelerini Ekle bar
       And Click Yeni Liste Oluştur bar
-      And Name the list as "firstList" and save it
+      And Name the list
       And Add new member using add with form
+      Then Verify that new member is seen under recordeds tab

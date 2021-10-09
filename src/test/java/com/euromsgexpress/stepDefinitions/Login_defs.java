@@ -36,7 +36,7 @@ public class Login_defs {
 
     @And("Proceed to captcha and click login button")
     public void proceedToCaptchaAndClickLoginButton() throws InterruptedException {
-        Thread.sleep(40000);
+        Thread.sleep(50000);
         loginPage.loginButton.click();
     }
 
