@@ -1,6 +1,6 @@
 @regression
   Feature: Adding a new membership
-    @wip
+
     Scenario: User should be able to add a new member
       Given Navigate to home page
       When Send valid email and password

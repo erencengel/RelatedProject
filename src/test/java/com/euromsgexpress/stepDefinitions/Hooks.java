@@ -24,7 +24,7 @@ public class Hooks {
             scenario.attach(screenshot,"image/png","screenshot");
         }
         Thread.sleep(3000);
-        //Driver.closeDriver();
+        Driver.closeDriver();
     }
 
 

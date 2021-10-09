@@ -1,6 +1,6 @@
 @regression
 Feature: Login functionality
-
+  @wip
   Scenario: User should be able to login with valid credentials(Positive Scenario)
     Given Navigate to home page
     When Send valid email and password
